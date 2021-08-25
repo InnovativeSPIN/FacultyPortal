@@ -1,4 +1,4 @@
-# demo
+# Flutter Application for NSCET Faculties
 
 A new Flutter project.
 
