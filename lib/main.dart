@@ -9,105 +9,269 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        theme: ThemeData(fontFamily: "opensans"),
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          body: Container(
+            child: Center(
+              child: loginpage(),
+            ),
+          ),
+        ));
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
+class loginpage extends StatefulWidget {
+  const loginpage({Key? key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _loginpageState createState() => _loginpageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _loginpageState extends State<loginpage> {
+  double window_height = 0;
+  double window_width = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  var _bgcol = Colors.white;
+  var _concol = Color(0xFFB104565);
+  var _headcol = Color(0xFFBA08200);
+
+  double _login_width = 0;
+  double _loginYoffset = 0;
+  double _loginXoffset = 0;
+  double _registeryoffset = 0;
+  double _login_opacity = 1;
+  double _hmart = 100;
+  int _state = 0;
+  var _welcol = Color(0xFFB104565);
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+    window_height = MediaQuery.of(context).size.height;
+    window_width = MediaQuery.of(context).size.width;
+
+    switch (_state) {
+      case 0:
+        _bgcol = Colors.white;
+        _headcol = Color(0xFFBFF834E);
+        _welcol = Color(0xFFB104565);
+        _concol = Color(0xFFB104565);
+        _loginYoffset = window_height;
+        _loginXoffset = 0;
+        _login_width = window_width;
+        _registeryoffset = window_height;
+        _login_opacity = 1;
+        _hmart = 100;
+
+        break;
+      case 1:
+        _bgcol = Color(0xFFB104565);
+        _headcol = Color(0xFFBA08200);
+        _welcol = Colors.white;
+        _concol = Colors.white;
+        _login_width = window_width;
+        _loginYoffset = 270;
+        _loginXoffset = 0;
+        _registeryoffset = window_height;
+        _login_opacity = 1;
+        _hmart = 100;
+        break;
+      case 2:
+        _bgcol = Color(0xFFB104565);
+        _headcol = Color(0xFFBA08200);
+        _welcol = Colors.white;
+        _concol = Colors.white;
+        _login_width = window_width - 40;
+        _loginYoffset = 250;
+        _loginXoffset = 20;
+        _registeryoffset = 270;
+        _login_opacity = 0.7;
+        _hmart = 80;
+        break;
+    }
+
+    return Stack(
+      children: <Widget>[
+        AnimatedContainer(
+          curve: Curves.fastLinearToSlowEaseIn,
+          duration: Duration(milliseconds: 1000),
+          color: _bgcol,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _state = 0;
+                  });
+                },
+                child: Container(
+                  child: Column(
+                    children: <Widget>[
+                      AnimatedContainer(
+                        curve: Curves.fastLinearToSlowEaseIn,
+                        duration: Duration(milliseconds: 1000),
+                        margin: EdgeInsets.only(top: _hmart),
+                        child: Text(
+                          "Welcome to",
+                          style: TextStyle(color: _welcol, fontSize: 20),
+                        ),
+                      ),
+                      Text(
+                        "NSCET CONNECT",
+                        style: TextStyle(color: _headcol, fontSize: 24),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        child: Text(
+                            "A Cross platform Communication application developed by inhouse nscet developers",
+                            style: TextStyle(color: _concol, fontSize: 14),
+                            textAlign: TextAlign.center),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                child: Center(child: Image.asset("assets/images/clg_logo.png")),
+              ),
+              Container(
+                padding: EdgeInsets.all(20),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (_state != 0) {
+                        _state = 0;
+                      } else {
+                        _state = 1;
+                      }
+                    });
+                  },
+                  child: Container(
+                      width: double.infinity,
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Color(0xFFB104565),
+                          borderRadius: BorderRadius.circular(25)),
+                      child: Center(
+                          child: Text(
+                        "Get Started",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ))),
+                ),
+              ),
+            ],
+          ),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _state = 2;
+            });
+          },
+          child: AnimatedContainer(
+            padding: EdgeInsets.all(32),
+            width: _login_width,
+            curve: Curves.fastLinearToSlowEaseIn,
+            duration: Duration(milliseconds: 1000),
+            transform:
+                Matrix4.translationValues(_loginXoffset, _loginYoffset, 1),
+            decoration: BoxDecoration(
+                color: Colors.white.withOpacity(_login_opacity),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25))),
+            child: Column(
+              children: <Widget>[
+                Primary_Button(
+                  btnText: "Login",
+                  
+                ),
+                SizedBox( height: 20),
+                OutlineBtn(btnText: "Create a New Accouunt")
+              ],
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _state = 2;
+            });
+          },
+          child: AnimatedContainer(
+            padding: EdgeInsets.all(32),
+            curve: Curves.fastLinearToSlowEaseIn,
+            duration: Duration(milliseconds: 1000),
+            transform: Matrix4.translationValues(0, _registeryoffset, 1),
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25))),
+            child: Column(
+              children: [
+                Primary_Button(
+                  btnText: "Register",
+                ),
+                SizedBox( height: 20),
+                OutlineBtn(btnText: "Back to login")
+              ],
+            ),
+          ),
+        )
+      ],
     );
+  }
+}
+
+class Primary_Button extends StatefulWidget {
+  final String btnText;
+  Primary_Button({required this.btnText});
+
+  @override
+  _Primary_ButtonState createState() => _Primary_ButtonState();
+}
+
+class _Primary_ButtonState extends State<Primary_Button> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+            color: Color(0xFFB104565), borderRadius: BorderRadius.circular(25)),
+        padding: EdgeInsets.all(20),
+        child: Center(
+          child: Text(widget.btnText,
+              style: TextStyle(color: Colors.white, fontSize: 16)),
+        ));
+  }
+}
+
+class OutlineBtn extends StatefulWidget {
+  final String btnText;
+  OutlineBtn({required this.btnText});
+
+  @override
+  _OutlineBtnState createState() => _OutlineBtnState();
+}
+
+class _OutlineBtnState extends State<OutlineBtn> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Color(0xFFB104565),
+            width: 2,
+          ),
+           
+          borderRadius: BorderRadius.circular(25)),
+        padding: EdgeInsets.all(20),
+        child: Center(
+          child: Text(widget.btnText,
+              style: TextStyle(color: Color(0xFFB104565), fontSize: 16)),
+        ));
+      
+    
   }
 }
