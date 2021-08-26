@@ -10,9 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(fontFamily: "opensans"),
         debugShowCheckedModeBanner: false,
         home: Scaffold(
+          //drawer: SidebarNav(),
+          //appBar: AppBar(title: Text("Home")),
           body: Container(
             child: Center(
               child: loginpage(),
@@ -65,6 +66,7 @@ class _loginpageState extends State<loginpage> {
         _hmart = 100;
 
         break;
+        
       case 1:
         _bgcol = Color(0xFFB104565);
         _headcol = Color(0xFFBA08200);
@@ -77,6 +79,7 @@ class _loginpageState extends State<loginpage> {
         _login_opacity = 1;
         _hmart = 100;
         break;
+
       case 2:
         _bgcol = Color(0xFFB104565);
         _headcol = Color(0xFFBA08200);
