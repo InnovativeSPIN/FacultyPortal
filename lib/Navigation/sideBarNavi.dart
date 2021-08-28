@@ -64,7 +64,7 @@ class SidebarNav extends StatelessWidget {
                             style: GoogleFonts.adamina(
                                 fontSize: 16,
                                 fontWeight: FontWeight.bold,
-                                color: Color.fromRGBO(213, 187, 75, 1)),
+                                color: Color.fromRGBO(213, 187, 75, 0.8)),
                           ),
                         ],
                       ),
