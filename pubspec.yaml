@@ -29,6 +29,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^2.1.0
   flutter_spinkit: ^5.0.0
+  adobe_xd: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:
@@ -51,7 +52,12 @@ flutter:
     - family: opensans
       fonts:
         - asset: assets/fonts/OpenSans-Bold.ttf
-
+    - family: Times New Roman
+      fonts:
+        - asset: assets/fonts/times.ttf
+    - family: Arial
+      fonts:
+        - asset: assets/fonts/SEGOEUI.TTF
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
