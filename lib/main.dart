@@ -1,11 +1,14 @@
 import 'package:demo/Navigation/sideBarNavi.dart';
-import 'package:demo/signupin/signin.dart';
+import 'package:demo/Authentication/signin.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 void main() {
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: Splashscreen(duration: 5, goToPage: HomePage())));
+  runApp(MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Splashscreen(duration: 2, goToPage: login_Screen())));
 }
+
 /* splash screen */
 class Splashscreen extends StatelessWidget {
   int duration = 0;
