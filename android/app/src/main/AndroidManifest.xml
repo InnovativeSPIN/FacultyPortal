@@ -3,6 +3,9 @@
    <application
         android:label="demo"
         android:icon="@mipmap/ic_launcher">
+
+
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -27,6 +30,7 @@
               android:name="io.flutter.embedding.android.SplashScreenDrawable"
               android:resource="@drawable/launch_background"
               />
+              
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -38,4 +42,7 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    
+            <!-- Required to fetch data from the internet. -->
+        <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

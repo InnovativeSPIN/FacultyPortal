@@ -44,9 +44,8 @@ class SidebarNav extends StatelessWidget {
                         ),
                       ),
                       top: 5,
-                      right: 5,
+                      right: 10,
                     ),
-
                     Positioned(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -119,34 +118,46 @@ class SidebarNav extends StatelessWidget {
           Positioned(
             child: Container(
               width: 320,
-              height: 250,
+              height: 290,
               padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: ListView(
+                padding: EdgeInsets.all(0),
                 children: [
                   ListTile(
+                      contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                       title: ListText("Tasks"),
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, "/tasks");
                       }),
                   ListTile(
+                      contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                       title: ListText("Leave Applications"),
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, "/leaveApp");
                       }),
                   ListTile(
+                      contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                       title: ListText("Notifications"),
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, "/notification");
                       }),
                   ListTile(
+                      dense: true,
+                      contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                       title: ListText("Circulars"),
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, "/circulars");
+                      }),
+                  ListTile(
+                      contentPadding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                      title: ListText("About"),
+                      onTap: () {
+                        Navigator.pushNamed(context, "/about");
                       }),
                 ],
               ),
             ),
-            top: 230,
+            top: 250,
           ),
           Positioned(
             child: Image(
@@ -160,8 +171,7 @@ class SidebarNav extends StatelessWidget {
             child: Text(
               "Innovative Software Product Industry of NSCET",
               style: GoogleFonts.cambo(
-                  fontSize: 12, color: Color.fromRGBO(75, 75, 75, 1)
-              ),
+                  fontSize: 12, color: Color.fromRGBO(75, 75, 75, 1)),
               textAlign: TextAlign.center,
             ),
             width: 320,
@@ -185,9 +195,9 @@ class ListText extends StatelessWidget {
     return Text(
       this.text!,
       style: GoogleFonts.roboto(
-          fontSize: 20, color: Color.fromRGBO(17, 17, 17, 1),
-          fontWeight: FontWeight.w300
-      ),
+          fontSize: 20,
+          color: Color.fromRGBO(17, 17, 17, 1),
+          fontWeight: FontWeight.w300),
     );
   }
 }

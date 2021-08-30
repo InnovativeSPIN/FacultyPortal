@@ -1,44 +1,34 @@
-import 'package:demo/Navigation/sideBarNavi.dart';
+import 'dart:io';
+
+import 'package:demo/AboutPage/AboutPage.dart';
 import 'package:demo/Authentication/signin.dart';
+import 'package:demo/HomePage/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
+
 void main() {
-  runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Splashscreen(duration: 2, goToPage: login_Screen())));
+  runApp(AppNavigation());
 }
 
-/* splash screen */
-class Splashscreen extends StatelessWidget {
-  int duration = 0;
-  Widget goToPage;
+class AppNavigation extends StatelessWidget {
+  const AppNavigation({Key? key}) : super(key: key);
 
-  Splashscreen({required this.goToPage, required this.duration});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    Future.delayed(Duration(seconds: this.duration), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => this.goToPage));
-    });
-
-    return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          Image.asset("assets/images/SPLASH_LOGO.png", height: 300.0),
-          SizedBox(height: 30.0),
-          SpinKitChasingDots(
-            color: Color(0xFFB104565),
-          )
-        ],
-      ),
+    return MaterialApp(
+      
+      routes: {
+        '/':(context) => HomePage(),
+        //"/":(context) => login_Screen(),
+        //"/register":(context) => RegisterScreen(),
+        '/about':(context) => AboutPage(),
+        
+      },
     );
   }
 }
+  
 
 // temporary home page 
 
