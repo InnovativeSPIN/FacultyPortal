@@ -1,4 +1,5 @@
 import 'package:demo/Navigation/sideBarNavi.dart';
+import 'package:demo/Utils.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +13,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("NSCET E-CONNECT"),),
+      appBar: getAppBar(context, "NSCET E-CONNECT"),
       drawer: SidebarNav(),
       body: Center(
         child:Image(image: AssetImage('assets/images/iSPIN_logo.png'), width: 320)

@@ -11,10 +11,7 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: SidebarNav(),
-      appBar: AppBar(
-        title: Text("About"),
-        backgroundColor: Color.fromRGBO(27, 79, 109, 1),
-      ),
+      appBar: getAppBar(context, "ABOUT"),
       body: AppAboutPage(),
       backgroundColor: Color.fromRGBO(250, 250, 250, 1),
     );

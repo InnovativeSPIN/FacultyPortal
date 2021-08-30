@@ -24,3 +24,17 @@ SnackBar getSnackBar(text) {
     ),
   );
 }
+
+AppBar getAppBar(context, text) {
+  return AppBar(
+    title: Text(text),
+    backgroundColor: Color.fromRGBO(27, 79, 109, 1),
+    
+    actions: <Widget>[
+      IconButton(
+        onPressed: () => {Navigator.pushNamed(context, "/")},
+        icon: Icon(Icons.home),
+      ),
+    ],
+  );
+}
