@@ -31,10 +31,10 @@ class _AppAboutPageState extends State<AppAboutPage> {
   void sendMessage() {
     if (messageController.text != "") {
       postfetch(
-          'http://192.168.0.103:8000/api/faculty/user/feedback',
+          'http://http://127.0.0.1:8000/',
           <String, String>{
-            "facultyId": "1",
-            "message": messageController.text
+            "facultyId": "1",  // declared as dictionary key:value 
+            "message": messageController.text  //variable
           }).then((res) => {
             if (res.statusCode == 200){
               print(res.body),

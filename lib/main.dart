@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:demo/AboutPage/AboutPage.dart';
-import 'package:demo/Authentication/signin.dart';
+import 'package:demo/Authentication/Login.dart';
+import 'package:demo/Authentication/Authotp.dart';
 import 'package:demo/HomePage/HomePage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -19,8 +20,8 @@ class AppNavigation extends StatelessWidget {
     return MaterialApp(
       
       routes: {
-        '/':(context) => HomePage(),
-        //"/":(context) => login_Screen(),
+        //'/':(context) => HomePage(),
+        "/":(context) => Signin(),
         //"/register":(context) => RegisterScreen(),
         '/about':(context) => AboutPage(),
         
